@@ -6,26 +6,32 @@ import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
 import { Portfolio } from "@/components/sections/Portfolio";
 import {
-  placeholderHero,
-  placeholderCommercialItems,
-  placeholderCustomWorksItems,
-} from "@/lib/placeholderContent";
+  getHeroContent,
+  getCommercialItems,
+  getCustomWorksItems,
+} from "@/lib/content";
 
-export default function Home() {
+export default async function Home() {
+  const [hero, commercialItems, customWorksItems] = await Promise.all([
+    getHeroContent(),
+    getCommercialItems(),
+    getCustomWorksItems(),
+  ]);
+
   return (
     <div className="flex flex-1 flex-col">
       <Header />
       <Hero
-        headline={placeholderHero.headline}
-        subcopy={placeholderHero.subcopy}
-        imageUrl={placeholderHero.imageUrl}
+        headline={hero.headline}
+        subcopy={hero.subcopy}
+        imageUrl={hero.imageUrl}
       />
       <BrandIntro />
       <Services />
       <Process />
       <Portfolio
-        commercialItems={placeholderCommercialItems}
-        customWorksItems={placeholderCustomWorksItems}
+        commercialItems={commercialItems}
+        customWorksItems={customWorksItems}
       />
       <Footer />
     </div>
