@@ -14,8 +14,6 @@ datasource db {
 
 model HeroContent {
   id        Int      @id @default(1)
-  headline  String
-  subcopy   String
   imageUrl  String?
   blobPath  String?
   updatedAt DateTime @updatedAt

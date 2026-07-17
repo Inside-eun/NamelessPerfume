@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Noto_Sans_KR } from "next/font/google";
+import localFont from "next/font/local";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
+config.autoAddCss = false;
 
-const notoSansKr = Noto_Sans_KR({
-  variable: "--font-noto-sans-kr",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+const pretendard = localFont({
+  variable: "--font-pretendard",
+  src: "../../node_modules/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
+  weight: "45 920",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${cormorant.variable} ${notoSansKr.variable} antialiased`}
+      className={`${pretendard.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col">{children}</body>
     </html>

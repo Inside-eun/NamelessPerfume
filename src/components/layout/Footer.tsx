@@ -14,7 +14,7 @@ const iconPaths: Record<string, React.ReactNode> = {
 
 export function Footer() {
   return (
-    <footer className="w-full bg-ink text-white px-6 sm:px-10 py-14">
+    <footer className="w-full bg-ink text-paper px-6 sm:px-10 py-14">
       <div className="flex gap-4">
         {footerContent.socialLinks.map((link) => (
           <a
@@ -30,7 +30,7 @@ export function Footer() {
         ))}
       </div>
       <div className="mt-8 h-px w-full bg-white/15" />
-      <div className="mt-6 flex flex-col gap-1 text-xs leading-relaxed text-white/50">
+      <div className="mt-6 flex flex-col gap-1 text-xs leading-relaxed text-footer-muted">
         <p>{footerContent.business.name}</p>
         <p>{footerContent.business.representative}</p>
         <p>{footerContent.business.address}</p>

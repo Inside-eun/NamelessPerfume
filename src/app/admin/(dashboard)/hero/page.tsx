@@ -7,11 +7,7 @@ export default async function AdminHeroPage() {
   return (
     <div className="flex flex-col gap-6">
       <h1 className="font-serif text-xl">Hero 편집</h1>
-      <HeroForm
-        initialHeadline={hero.headline}
-        initialSubcopy={hero.subcopy}
-        initialImageUrl={hero.imageUrl}
-      />
+      <HeroForm initialImageUrl={hero.imageUrl} />
     </div>
   );
 }

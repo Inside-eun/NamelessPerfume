@@ -42,7 +42,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="mt-2 rounded-sm bg-ink py-2.5 text-sm text-white disabled:opacity-50"
+        className="mt-2 rounded-sm bg-ink py-2.5 text-sm text-paper disabled:opacity-50"
       >
         {isPending ? "로그인 중..." : "로그인"}
       </button>

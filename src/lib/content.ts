@@ -3,8 +3,6 @@ import { prisma } from "@/lib/db";
 export async function getHeroContent() {
   const hero = await prisma.heroContent.findUnique({ where: { id: 1 } });
   return {
-    headline: hero?.headline ?? "",
-    subcopy: hero?.subcopy ?? "",
     imageUrl: hero?.imageUrl ?? null,
   };
 }

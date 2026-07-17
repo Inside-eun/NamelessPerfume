@@ -9,8 +9,6 @@ async function main() {
     update: {},
     create: {
       id: 1,
-      headline: "여기 뭘 넣어야 좋을지\n계속 고민중입니다",
-      subcopy: "관리자 페이지에서 이 문구와 사진을 직접 바꿀 수 있어요.",
       imageUrl: null,
     },
   });

@@ -1,42 +1,15 @@
+import Image from "next/image";
 import { brandIntro } from "@/lib/staticContent/brandIntro";
 
 function CircularLogo() {
   return (
-    <svg viewBox="0 0 120 120" className="h-40 w-40 sm:h-48 sm:w-48 shrink-0">
-      <defs>
-        <path id="brandTopArc" d="M 12,60 A 48,48 0 1 1 108,60" />
-        <path id="brandBottomArc" d="M 12,60 A 48,48 0 1 0 108,60" />
-      </defs>
-      <circle
-        cx="60"
-        cy="60"
-        r="59"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="0.5"
-        opacity="0.4"
-      />
-      <text fontSize="6.5" letterSpacing="1.5" fill="currentColor" className="font-serif">
-        <textPath href="#brandTopArc" startOffset="10%">
-          NAME:LESS PERFUME
-        </textPath>
-      </text>
-      <text fontSize="6.5" letterSpacing="1.5" fill="currentColor" className="font-serif">
-        <textPath href="#brandBottomArc" startOffset="12%">
-          PERSONALIZED SCENT CRAFT
-        </textPath>
-      </text>
-      <text
-        x="60"
-        y="68"
-        textAnchor="middle"
-        fontSize="26"
-        fill="currentColor"
-        className="font-serif"
-      >
-        NP
-      </text>
-    </svg>
+    <Image
+      src="/logo/circular-logo.png"
+      alt="Name:less Perfume — Personalized Scent Craft"
+      width={800}
+      height={800}
+      className="h-40 w-40 sm:h-48 sm:w-48 shrink-0"
+    />
   );
 }
 

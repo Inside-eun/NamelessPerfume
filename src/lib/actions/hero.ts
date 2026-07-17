@@ -10,14 +10,8 @@ export async function updateHero(
   _prevState: HeroFormState,
   formData: FormData
 ): Promise<HeroFormState> {
-  const headline = String(formData.get("headline") ?? "").trim();
-  const subcopy = String(formData.get("subcopy") ?? "").trim();
   const imageUrl = String(formData.get("imageUrl") ?? "") || null;
   const blobPath = String(formData.get("blobPath") ?? "") || null;
-
-  if (!headline) {
-    return { error: "헤드라인을 입력해주세요.", success: false };
-  }
 
   const existing = await prisma.heroContent.findUnique({ where: { id: 1 } });
 
@@ -28,14 +22,10 @@ export async function updateHero(
   await prisma.heroContent.upsert({
     where: { id: 1 },
     update: {
-      headline,
-      subcopy,
       ...(imageUrl ? { imageUrl, blobPath } : {}),
     },
     create: {
       id: 1,
-      headline,
-      subcopy,
       imageUrl,
       blobPath,
     },

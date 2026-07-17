@@ -104,7 +104,7 @@ export function ImageUploader({
         multiple={multiple}
         onChange={handleChange}
         disabled={isUploading}
-        className="text-xs file:mr-3 file:rounded-sm file:border-0 file:bg-ink file:px-3 file:py-1.5 file:text-xs file:text-white"
+        className="text-xs file:mr-3 file:rounded-sm file:border-0 file:bg-ink file:px-3 file:py-1.5 file:text-xs file:text-paper"
       />
       {isUploading && <p className="text-xs text-muted">업로드 중...</p>}
       {error && <p className="text-xs text-red-600">{error}</p>}

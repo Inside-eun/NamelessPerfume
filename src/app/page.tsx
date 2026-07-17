@@ -21,11 +21,7 @@ export default async function Home() {
   return (
     <div className="flex flex-1 flex-col">
       <Header />
-      <Hero
-        headline={hero.headline}
-        subcopy={hero.subcopy}
-        imageUrl={hero.imageUrl}
-      />
+      <Hero imageUrl={hero.imageUrl} />
       <BrandIntro />
       <Services />
       <Process />
