@@ -11,8 +11,8 @@ export function Portfolio({ commercialItems, customWorksItems }: PortfolioProps)
     <section className="w-full px-6 sm:px-10 py-20">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <h2 className="font-serif text-sm tracking-[0.2em]">PORTFOLIO</h2>
-          <p className="mt-2 text-xs text-muted">작업물 모음</p>
+          <h2 className="font-serif text-sm font-bold tracking-[0.2em]">PORTFOLIO</h2>
+          <p className="mt-3 text-xs font-medium tracking-wide text-muted">작업물 모음</p>
         </div>
 
         <div className="mt-12">

@@ -20,6 +20,8 @@ export function Footer() {
           <a
             key={link.platform}
             href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={link.platform}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 hover:border-white/70 transition-colors"
           >
@@ -34,7 +36,22 @@ export function Footer() {
         <p>{footerContent.business.name}</p>
         <p>{footerContent.business.representative}</p>
         <p>{footerContent.business.address}</p>
-        <p>{footerContent.business.registrationNumber}</p>
+        <p>{footerContent.business.contact}</p>
+        <p>
+          {footerContent.business.emailLabel}
+          <strong className="font-bold">{footerContent.business.emailValue}</strong>
+        </p>
+        <p>
+          {footerContent.business.registrationNumber}{" "}
+          <a
+            href={footerContent.business.registrationCheckUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-paper transition-colors"
+          >
+            [사업자정보확인]
+          </a>
+        </p>
         <p>{footerContent.business.mailOrderNumber}</p>
       </div>
     </footer>

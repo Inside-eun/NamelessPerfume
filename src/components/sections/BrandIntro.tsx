@@ -19,7 +19,7 @@ export function BrandIntro() {
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 sm:flex-row sm:items-start sm:gap-16">
         <CircularLogo />
         <div className="flex flex-col gap-5 text-center sm:text-left">
-          <h2 className="font-serif text-sm tracking-[0.2em] text-ink">
+          <h2 className="font-serif text-sm font-bold tracking-[0.2em] text-ink">
             {brandIntro.heading}
           </h2>
           <p className="font-serif text-lg leading-relaxed text-ink">

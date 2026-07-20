@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import { ImageLightbox } from "./ImageLightbox";
 
 export type CommercialItem = {
   id: string;
@@ -7,6 +11,8 @@ export type CommercialItem = {
 };
 
 export function CommercialList({ items }: { items: CommercialItem[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   if (items.length === 0) return null;
 
   return (
@@ -15,9 +21,13 @@ export function CommercialList({ items }: { items: CommercialItem[] }) {
         <span aria-hidden>+</span> COMMERCIAL
       </p>
       <div className="mt-5 grid grid-cols-3 gap-3 sm:gap-6">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <div key={item.id} className="flex flex-col gap-2">
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-zinc-200">
+            <button
+              type="button"
+              onClick={() => setOpenIndex(index)}
+              className="relative aspect-square w-full overflow-hidden rounded-sm bg-zinc-200"
+            >
               {item.imageUrl ? (
                 <Image
                   src={item.imageUrl}
@@ -28,11 +38,20 @@ export function CommercialList({ items }: { items: CommercialItem[] }) {
               ) : (
                 <div className="h-full w-full bg-gradient-to-br from-zinc-200 to-zinc-300" />
               )}
-            </div>
+            </button>
             <p className="text-[11px] leading-snug text-muted">{item.caption}</p>
           </div>
         ))}
       </div>
+
+      {openIndex !== null && (
+        <ImageLightbox
+          items={items.map((item) => ({ imageUrl: item.imageUrl, alt: item.caption }))}
+          index={openIndex}
+          onClose={() => setOpenIndex(null)}
+          onNavigate={setOpenIndex}
+        />
+      )}
     </div>
   );
 }

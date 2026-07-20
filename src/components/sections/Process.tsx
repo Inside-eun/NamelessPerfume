@@ -5,10 +5,12 @@ export function Process() {
     <section className="w-full bg-ink px-6 sm:px-10 py-20 text-paper">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <h2 className="font-serif text-sm tracking-[0.2em]">
+          <h2 className="font-serif text-sm font-bold tracking-[0.2em]">
             {processSection.title}
           </h2>
-          <p className="mt-2 text-xs text-subtitle">{processSection.subtitle}</p>
+          <p className="mt-3 text-xs font-medium tracking-wide text-subtitle">
+            {processSection.subtitle}
+          </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-x-10 sm:gap-y-14">

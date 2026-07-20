@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ImageLightbox } from "./ImageLightbox";
 
 export type CustomWorksItem = {
   id: string;
@@ -12,6 +13,7 @@ const MOBILE_VISIBLE_COUNT = 6;
 
 export function CustomWorksGrid({ items }: { items: CustomWorksItem[] }) {
   const [showAll, setShowAll] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (items.length === 0) return null;
 
@@ -30,7 +32,11 @@ export function CustomWorksGrid({ items }: { items: CustomWorksItem[] }) {
                 : "block"
             }
           >
-            <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-zinc-200">
+            <button
+              type="button"
+              onClick={() => setOpenIndex(index)}
+              className="relative aspect-square w-full overflow-hidden rounded-sm bg-zinc-200"
+            >
               {item.imageUrl ? (
                 <Image
                   src={item.imageUrl}
@@ -41,7 +47,7 @@ export function CustomWorksGrid({ items }: { items: CustomWorksItem[] }) {
               ) : (
                 <div className="h-full w-full bg-gradient-to-br from-zinc-200 to-zinc-300" />
               )}
-            </div>
+            </button>
           </div>
         ))}
       </div>
@@ -53,6 +59,15 @@ export function CustomWorksGrid({ items }: { items: CustomWorksItem[] }) {
         >
           더보기
         </button>
+      )}
+
+      {openIndex !== null && (
+        <ImageLightbox
+          items={items.map((item) => ({ imageUrl: item.imageUrl, alt: "" }))}
+          index={openIndex}
+          onClose={() => setOpenIndex(null)}
+          onNavigate={setOpenIndex}
+        />
       )}
     </div>
   );

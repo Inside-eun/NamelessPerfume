@@ -16,10 +16,12 @@ export function Services() {
     <section className="w-full px-6 sm:px-10 py-20">
       <div className="mx-auto max-w-5xl">
         <div className="text-center">
-          <h2 className="font-serif text-sm tracking-[0.2em]">
+          <h2 className="font-serif text-sm font-bold tracking-[0.2em]">
             {servicesSection.title}
           </h2>
-          <p className="mt-2 text-xs text-muted">{servicesSection.subtitle}</p>
+          <p className="mt-3 text-xs font-medium tracking-wide text-muted">
+            {servicesSection.subtitle}
+          </p>
         </div>
 
         <div className="relative mt-10 h-62.5 w-full overflow-hidden rounded-lg">
